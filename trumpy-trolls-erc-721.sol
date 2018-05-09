@@ -55,7 +55,7 @@ contract ERC721 {
        require(currentOwner == ownerOf(_tokenId));
        require(currentOwner != newOwner);
        require(newOwner != address(0));
-       removeFromTokenList(_tokenId);
+       removeFromTokenList(currentOwner, _tokenId);
        balances[currentOwner] -= 1;
        tokenOwners[_tokenId] = newOwner;
        balances[newOwner] += 1;
